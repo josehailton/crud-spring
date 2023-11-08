@@ -1,11 +1,13 @@
 package com.hailton.crudspring.model.mapper;
 
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import com.hailton.crudspring.dto.CourseDTO;
 import com.hailton.crudspring.dto.LessonDTO;
 import com.hailton.crudspring.enums.Category;
 import com.hailton.crudspring.model.Course;
+import com.hailton.crudspring.model.Lesson;
 
 @Component
 public class CourseMapper {
@@ -35,8 +37,18 @@ public class CourseMapper {
             course.setId(courseDTO.id());
         }
 
+        List<Lesson> lessons = courseDTO.lessons().stream().map(lessonDTO -> {
+            var lesson = new Lesson();
+            lesson.setId(lessonDTO.id());
+            lesson.setName(lessonDTO.name());
+            lesson.setYoutubeUrl(lessonDTO.youtubeUrl());
+            lesson.setCourse(course);
+            return lesson;
+        }).toList();
+
         course.setName(courseDTO.name());
         course.setCategory( convertCategoryValue(courseDTO.category()) );
+        course.setLessons(lessons);
         return course;
     }
 

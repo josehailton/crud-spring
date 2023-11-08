@@ -1,7 +1,5 @@
 package com.hailton.crudspring;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,23 +21,25 @@ public class CrudSpringApplication {
         return args -> {
             courseRepository.deleteAll();
 
-            Course c = new Course();
-            c.setName("Angular com Spring");
-            c.setCategory(Category.BACK_END);
+            for (int i = 0; i < 20; i++) {
+                Course c = new Course();
+                c.setName("Angular com Spring " + i);
+                c.setCategory(Category.BACK_END);
 
-            Lesson l = new Lesson();
-            l.setName("Introdução");
-            l.setYoutubeUrl("watch?v1");
-            l.setCourse(c);
-            c.getLessons().add(l);
+                Lesson l = new Lesson();
+                l.setName("Introdução " + i);
+                l.setYoutubeUrl("watch?v123");
+                l.setCourse(c);
+                c.getLessons().add(l);
 
-            Lesson l1 = new Lesson();
-            l1.setName("Angular");
-            l1.setYoutubeUrl("watch?v2");
-            l1.setCourse(c);
-            c.getLessons().add(l1);
+                Lesson l1 = new Lesson();
+                l1.setName("Angular " + i);
+                l1.setYoutubeUrl("watch?v234");
+                l1.setCourse(c);
+                c.getLessons().add(l1);
 
-            courseRepository.save(c);
+                courseRepository.save(c);
+            }
         };
     }
 
