@@ -1,12 +1,10 @@
 package com.hailton.crudspring.service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestParam;
 import com.hailton.crudspring.dto.CourseDTO;
 import com.hailton.crudspring.dto.CoursePageDTO;
 import com.hailton.crudspring.exception.RecordNotFoundException;

@@ -21,7 +21,7 @@ public class CrudSpringApplication {
         return args -> {
             courseRepository.deleteAll();
 
-            for (int i = 0; i < 20; i++) {
+            for (int i = 0; i < 70; i++) {
                 Course c = new Course();
                 c.setName("Angular com Spring " + i);
                 c.setCategory(Category.BACK_END);

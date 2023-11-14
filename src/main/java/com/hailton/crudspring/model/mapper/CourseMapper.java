@@ -1,7 +1,6 @@
 package com.hailton.crudspring.model.mapper;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 import com.hailton.crudspring.dto.CourseDTO;
 import com.hailton.crudspring.dto.LessonDTO;
